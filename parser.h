@@ -4,12 +4,15 @@
 
 #define PARSER_H
 
-typedef struct {
+typedef struct token  {
     char *value;
     size_t size;
-} token;
+    struct token *next;
 
-token *parse(char *input,char discriminate);
+} Token;
+
+Token *parse(const char *input,const char discriminate);
+char *strip(char *input);
 
 
 #endif
